@@ -61,10 +61,21 @@ let getForecastWeather = function(lat, lon) {
         response.json().then(function(data) {
             console.log("Forecast Weather", data);
             document.getElementById("uvIndex").textContent = "UV Index: " + data.current.uvi;
-           /* fiveDayContainerEl = data
-            for (let i = 0; i < 5.length; i++) {
-
-            } */
+            if (data.current.uvi.value <=2) {
+                $(this).addClass("low")
+            } else if (data.current.uvi.value >2 && data.current.uvi.value <8) {
+                $(this).addClass("med");
+            } else if (data.current.uvi.value >8) {
+                $(this).addClass("high")
+            }
+            //Creating 5-day forecast cards
+           fiveDayContainerEl = data
+            for (let i = 1; i < 6; i++) {
+                document.getElementById("five-date").textContent = data.daily[i].dt
+                //document.getElementById("five-img").setAttribute("src", "http://openweathermap.org/img/w/" + data.daily[i].weather.icon + ".png")
+                document.getElementById("five-temp").textContent = data.daily[i].temp.day + "ºF"
+                document.getElementById("five-humid").textContent = data.daily[i].humidity
+            }
         })
     })
 }

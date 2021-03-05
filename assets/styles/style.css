@@ -1,1 +1,11 @@
+#low {
+    background-color: darkgreen;
+}
 
+#med {
+    background-color: yellow;
+}
+
+#high {
+    background-color: tomato;
+}
