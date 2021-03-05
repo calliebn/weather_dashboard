@@ -1,12 +1,14 @@
 let cities = [];
 let apiKey = '745cbb713a047695c07ef19d3aefc656'
+let date = moment().format('MMMM d, YYYY');
+$("#date").text(date);
 
 let cityFormEl = document.querySelector("#city-search");
 let cityInputEl = document.querySelector("#city");
 let weatherContainerEl = document.querySelector("#current-weather");
 let cityNameEl = document.querySelector("#cityName");
 let forecastTitle = document.querySelector("#forecast");
-let forecastContainerEl = document.querySelector("#five-day")
+let fiveDayContainerEl = document.querySelector("#five-day")
 let pastSearchButtonEl = document.querySelector("#past-search")
 
 let formSubmitHandler = function(event) {
@@ -37,9 +39,10 @@ let getCityWeather = function(event) {
    fetch(apiURL)
     .then(function(response) {
        response.json().then(function(data) {
-        console.log("Current Weather", data);
+           console.log("Current Weather", data);
            // displaying Current Weather
            cityNameEl.textContent = data.name;
+           document.getElementById("icon").setAttribute("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png")
            document.getElementById("temperature").textContent = "Temperature: " + data.main.temp + "ºF"
            document.getElementById("humidity").textContent = "Humidity: " + data.main.humidity + "%"
            document.getElementById("windSpeed").textContent = "Wind Speed: " + data.wind.speed + " MPH"
@@ -51,12 +54,17 @@ let getCityWeather = function(event) {
 };
 
 let getForecastWeather = function(lat, lon) {
-    let forecastURL = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${apiKey}`
+    let forecastURL = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${apiKey}`
 
     fetch(forecastURL)
     .then(function(response){
         response.json().then(function(data) {
             console.log("Forecast Weather", data);
+            document.getElementById("uvIndex").textContent = "UV Index: " + data.current.uvi;
+           /* fiveDayContainerEl = data
+            for (let i = 0; i < 5.length; i++) {
+
+            } */
         })
     })
 }
