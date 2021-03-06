@@ -1,3 +1,16 @@
+h1, h2, h3, h4, h5, h6, p {
+    font-family: 'Open Sans', sans-serif;
+}
+
+header h1 {
+    background-color: darkslategrey;
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
 #low {
     background-color: darkgreen;
 }

@@ -62,16 +62,25 @@ let getForecastWeather = function(lat, lon) {
             console.log("Forecast Weather", data);
             document.getElementById("uvIndex").textContent = "UV Index: " + data.current.uvi;
             if (data.current.uvi.value <=2) {
-                $(this).addClass("low")
+                addClass("low")
             } else if (data.current.uvi.value >2 && data.current.uvi.value <8) {
-                $(this).addClass("med");
+                addClass("med");
             } else if (data.current.uvi.value >8) {
-                $(this).addClass("high")
+                addClass("high")
             }
             //Creating 5-day forecast cards
            fiveDayContainerEl = data
             for (let i = 1; i < 6; i++) {
-                document.getElementById("five-date").textContent = data.daily[i].dt
+                //Changing date from UNIX date to Human Date
+                const milliseconds = data.daily[i].dt*1000
+                const dateObject = new Date(milliseconds)
+                const humanDate = dateObject.toLocaleString("en-US", {month: "long", day: "numeric", year: "numeric"})
+
+                //Creating cards
+                let newDayCardEL = $("<div>")
+                newDayCardEL.addClass("card")
+
+                document.getElementById("five-date").textContent = humanDate
                 //document.getElementById("five-img").setAttribute("src", "http://openweathermap.org/img/w/" + data.daily[i].weather.icon + ".png")
                 document.getElementById("five-temp").textContent = data.daily[i].temp.day + "ºF"
                 document.getElementById("five-humid").textContent = data.daily[i].humidity
