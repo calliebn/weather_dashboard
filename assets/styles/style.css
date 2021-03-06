@@ -22,3 +22,7 @@ header h1 {
 #high {
     background-color: tomato;
 }
+
+.hide {
+    visibility: hidden;
+}
