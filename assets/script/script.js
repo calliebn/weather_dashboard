@@ -61,7 +61,7 @@ let getForecastWeather = function (lat, lon) {
 
                     //Creating the daily cards
                     let newDayCardEl = $("<div>")
-                    newDayCardEl.addClass("col-2 col-md-2 col-sm-12 card text-center five-day");
+                    newDayCardEl.addClass("col-lg-2 col-md-2 col-sm-12 card text-center five-day");
                     newDayCardEl.appendTo(fiveForecastEl)
                     let newCardBodyEl = $("<div>")
                     newCardBodyEl.addClass("card-body");
