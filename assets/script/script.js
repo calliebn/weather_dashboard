@@ -8,7 +8,7 @@ let fiveDayContainerEl = document.querySelector("#five-day")
 function getCityWeather(event) {
     event.preventDefault();
     let city = cityInputEl.value.trim();
-    let apiURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+    let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
     console.log(apiURL);
 
     fetch(apiURL)
@@ -35,7 +35,7 @@ function getCityWeather(event) {
 }
 
 let getForecastWeather = function (lat, lon) {
-    let forecastURL = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${apiKey}`
+    let forecastURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=${apiKey}`
 
     fetch(forecastURL)
         .then(function (response) {
