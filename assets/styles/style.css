@@ -2,6 +2,16 @@ h1, h2, h3, h4, h5, h6, p {
     font-family: 'Open Sans', sans-serif;
 }
 
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 header h1 {
     background-color: darkslategrey;
     color: #fff;
@@ -11,18 +21,41 @@ header h1 {
     margin-bottom: 30px;
 }
 
-#low {
-    background-color: darkgreen;
+.low {
+    background-color:lightgreen;
+    padding: 2px;
 }
 
-#med {
+.med {
     background-color: yellow;
+    padding: 2px;
 }
 
-#high {
+.high {
     background-color: tomato;
+    padding: 2px;
 }
 
 .hide {
     visibility: hidden;
+}
+
+.five-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color:lightskyblue;
+    margin: 5px;
+}
+
+.main-container {
+    padding: 20px;
+}
+
+.five-forecast, .five-header {
+    display: flex;
+    padding: 20px;
 }

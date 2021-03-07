@@ -14,24 +14,21 @@
     <link href="assets/styles/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-light">
     <header>
         <h1>Weather Dashboard</h1>
     </header>
     <div class="main-container">
         <div class="row">
-            <div class="col-6 col-sm-3">
-                <form id="city-search">
+            <div class="col-3 d-flex flex-wrap">
+                <div id="city-search">
                     <h3>Search for a location</h3>
                     <input id="city" class="input-form">
-                    <button id="search-btn">Search</button>
-                </form>
+                    <button type="button" class="btn btn-secondary btn-sm" id="search-btn">Search</button>
+                </div>
             </div>
-        </div>
-        <div class="past-search"></div>
 
-        <div class="row">
-            <div class="col-6 col-sm-3">
+            <div class="col-8 col-sm-3">
                 <div class="selected-city" id="current-forecast">
                     <h2><span id="cityName"></span> <span id="date"></span></h2>
                     <img id="icon">
@@ -44,18 +41,9 @@
         </div>
     </div>
 
-    <div class="row" id="five-forecast">
+    <div class="row justify-content-start five-header hide">
         <h2 id="forecast">5-Day Forcast</h2>
-        <div class="col-2">
-            <div class="card text-center five-day">
-                <div class="card-body">
-                    <h3 class="card-title" id="five-date"></h3>
-                    <img id="five-img">
-                    <p class="card-text" id="five-temp"></p>
-                    <p class="card-text" id="five-humid"></p>
-                </div>
-            </div>
-        </div>
+        <div class="five-forecast"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
