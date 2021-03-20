@@ -18,3 +18,7 @@ https://calliebn.github.io/weather_dashboard/
 ![screenshot of weather dashboard oregon](assets/images/portland.png)
 
 ![screenshot of weather dashboard hawaii](assets/images/hawaii.png)
+
+## Contributors
+Callie Nipper
+callie.nipper@gmail.com
